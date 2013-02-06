@@ -35,6 +35,12 @@ class DescriptionFacet(Facet):
                 log.msg("removed %s" % desc)
 
     @property
+    def data(self):
+        if type(self.subject.data) is dict:
+            self.subject.data[self.name] = []
+        return self.subject.data.setdefault(self.name, [])
+
+    @property
     def descriptions(self):
         return self.data
 
