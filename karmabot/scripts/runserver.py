@@ -12,41 +12,41 @@ from karmabot.core.client import KarmaBotFactory
 
 
 def main():
-    from optparse import OptionParser
-    parser = OptionParser(usage="usage: %prog [options] channels")
+    from argparse import ArgumentParser
+    parser = ArgumentParser(description="A very extensible IRC bot written in Python.")
 
     # IRC connection options
-    parser.add_option("-s", "--server",
+    parser.add_argument("-s", "--server",
                       action="store", dest="server",
                       default="irc.freenode.net",
                       help="IRC server to connect to")
-    parser.add_option("-p", "--port",
-                      action="store", type="int", dest="port", default=None,
+    parser.add_argument("-p", "--port",
+                      action="store", type=int, dest="port", default=None,
                       help="IRC server to connect to")
-    parser.add_option("--ssl",
+    parser.add_argument("--ssl",
                       action="store_true", dest="ssl", default=False,
                       help="use SSL")
-    parser.add_option("--password",
+    parser.add_argument("--password",
                       action="store", dest="password", default=None,
                       help="server password")
-    parser.add_option("-n", "--nick",
+    parser.add_argument("-n", "--nick",
                       action="store", dest="nick", default="karmabot",
                       help="nickname to use")
     # Bot options
-    parser.add_option("-v", "--verbose",
+    parser.add_argument("-v", "--verbose",
                       action="store_true", dest="verbose", default=False,
                       help="enable verbose output")
-    parser.add_option("-d", "--data",
+    parser.add_argument("-d", "--data",
                       action="store", dest="filename", default="karma.json",
                       help="karma data file name")
-    parser.add_option("-t", "--trust",
+    parser.add_argument("-t", "--trust",
                       action="append", dest="trusted", default=[],
                       help="trusted hostmasks")
-    parser.add_option("-f", "--facets",
+    parser.add_argument("-f", "--facets",
                       action="append", dest="facets", default=[],
                       help="additional facets to load")
 
-    (options, channels) = parser.parse_args()
+    (options, channels) = parser.parse_known_args()
 
     if not channels:
         parser.error("You must supply some channels to join.")
