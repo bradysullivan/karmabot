@@ -39,10 +39,10 @@ class Context(object):
 class KarmaBot(irc.IRCClient):
     affirmative_prefixes = [u"Affirmative", u"Alright", u"Done",
                             u"K", u"OK", u"Okay", u"Sure", u"Yes",
-                            u"Jawohl", u"Aye aya", u"Mmmk",
+                            u"Jawohl", u"Aye Aye", u"Mmmk",
                             u"Si, senor", u"Whatever you say",
                             u"Yessir", u"I guess", u"Aight"]
-    huh_msgs = [u"Huh?", u"What?", u"WTF?", u"Dafuq?", u"Say wuh?", u"What you smokin'?", u"Fuck off."]
+    huh_msgs = [u"Huh?", u"What?", u"WTF?", u"Dafuq?", u"Say wuh?", u"LOL, no.", u"Fuck off."]
 
     def connectionMade(self):
         self.nickname = self.factory.nick
