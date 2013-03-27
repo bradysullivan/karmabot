@@ -5,3 +5,5 @@ karmabot.egg-info/
 *.json
 /dev_env/
 /dump.rdb
+/build
+/dist
